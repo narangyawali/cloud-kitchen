@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 function NavBar() {
@@ -7,29 +8,29 @@ function NavBar() {
         <div>
           <div className="flex justify-items-start">
             <p className="pr-2">
-              <a href="/">logo</a>
+              <Link href="/">logo</Link>
             </p>
             <p className="pr-2">
-              <a href="/">Home</a>
+              <Link href="/">Home</Link>
             </p>
             <p className="pr-2">
-              <a href="/">Menu</a>
+              <Link href="/">Menu</Link>
             </p>
             <p className="pr-2">
-              <a href="/">Contact</a>
+              <Link href="/">Contact</Link>
             </p>
           </div>
         </div>
         <div className="flex ">
 
         <p className="pr-2">
-          <a href="/login">Login</a>
+          <Link href="/login">Login</Link>
         </p>
         <p className="pr-2">
-          <a href="/register">Register</a>
+          <Link href="/register">Register</Link>
         </p>
         <p className="pr-2">
-          <a href="">Cart</a>
+          <Link href="">Cart</Link>
         </p>
         </div>
       </div>
