@@ -13,10 +13,22 @@ export default function Register() {
         <div>
         {/* <label htmlFor="password">Password</label> */}
         <input type="password" name="password" id="" placeholder='Input password' className='h-10 pl-3 my-5 border border-red-300 w-80 rounded-2xl ' />
+        <div className='flex flex-col my-2 text-center text-lg'>
+          <div className=''>
+
+          <label htmlFor="role"> Register as chef</label>
+        <input type="radio" name="role" value={"chef"} id=""  />
+          </div>
+          <div>
+
+          <label htmlFor="role"> Register as customer</label>
+        <input type="radio" name="role" value={"customer"} id="" />
+          </div>
         </div>
-        <input type="button" value="Login" className='h-8 border border-slate-600 cursor-pointer w-80 rounded-2xl text-xl bg-blue-300' />
+        </div>
+        <input type="button" value="Register" className='h-8 border border-slate-600 cursor-pointer w-80 rounded-2xl text-xl bg-blue-300' />
     <p className='my-5'>Or just login</p>
-	<Link className='h-8 border border-slate-600 cursor-pointer w-80 rounded-2xl text-xl bg-blue-300 text-center' href={"/login"}> Register</Link>
+	<Link className='h-8 border border-slate-600 cursor-pointer w-80 rounded-2xl text-xl bg-blue-300 text-center' href={"/login"}> Login</Link>
     </div>
 
   </>
