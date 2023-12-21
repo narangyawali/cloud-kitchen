@@ -14,7 +14,7 @@ function NavBar() {
               <Link href="/">Home</Link>
             </p>
             <p className="pr-2">
-              <Link href="/">Menu</Link>
+              <Link href="/menu">Menu</Link>
             </p>
             <p className="pr-2">
               <Link href="/">Contact</Link>
