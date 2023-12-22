@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from "next/link";
 
 import { dish,chef } from '@/data'
 
@@ -7,10 +8,10 @@ function Menu() {
    <>
    <h1 className='text-2xl my-5 ml-56 '>Best food around your location</h1>
    <section className='flex flex-wrap justify-around '>
-    {[1,1,1,1,1,1,1,1,1,1,1].map(()=>{
+    {[1,2,3,4,5,7,6,8,9,10].map((e)=>{
         return(<>
         
-		<Card dishItem={dish} />
+		<Card dishItem={dish} route={e} />
         </>)
     })}
    </section>
@@ -18,10 +19,12 @@ function Menu() {
   )
 }
 
-function Card({dishItem}){
+function Card({dishItem,route}){
     return(<>
     <div className='h-96 w-96 border border-blue-500 m-3 rounded-2xl'>
+        <Link href={`/dish/${route}`}>
     <img src={`img/${dishItem.img}`} alt="" className='w-full h-64  rounded-2xl' />
+        </Link>
     <div className='flex justify-between'>
     	<h1 className='ml-3'> {dishItem.name}</h1>
         <h1 className='mr-3'>{dishItem.stars}</h1>
