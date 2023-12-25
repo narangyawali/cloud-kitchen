@@ -54,3 +54,5 @@ function MenuItem(){
     </div>
   </>)
 }
+
+export {MenuItem}
