@@ -18,6 +18,9 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
       <NavBar/>
         {children}
+    		<div className='text-center py-8 border-t-2'>
+          © 2023 All rights reserved
+        </div>
         </body>
     </html>
   )

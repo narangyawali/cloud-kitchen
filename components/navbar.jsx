@@ -4,11 +4,13 @@ import React from "react";
 function NavBar() {
   return (
     <>
-      <div className="flex justify-between p-5 border w-full px-64">
+      <div className="flex justify-between p-5 border w-full px-64 items-center ">
         <div>
-          <div className="flex justify-items-start">
+          <div className="flex justify-between items-center">
             <p className="pr-2">
-              <Link href="/">logo</Link>
+              <Link href="/">
+				<img src="/home.png" className="h-16"/>
+				</Link>
             </p>
             <p className="pr-2">
               <Link href="/">Home</Link>
@@ -17,7 +19,7 @@ function NavBar() {
               <Link href="/menu">Menu</Link>
             </p>
             <p className="pr-2">
-              <Link href="/">Contact</Link>
+              <Link href="/#contact">Contact</Link>
             </p>
           </div>
         </div>
