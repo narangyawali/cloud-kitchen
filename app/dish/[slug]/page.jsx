@@ -13,7 +13,7 @@ export default function ParticularDish({params}) {
   	<div className='mx-64'>
         <img src={item.image} alt="img" className="h-56"/>
         <h1 className='text-3xl my-3'>{item.name}</h1>
-        <h1 className='text-2xl my-3'>{item.price}</h1>
+        <h1 className='text-2xl my-3'>Rs: {item.price}</h1>
         <h1 className='text-xl my-3'>Prepared by: 
         <Link href={`/chef/${item.chefId}`}>
         {cName} 
