@@ -19,6 +19,9 @@ function NavBar() {
               <Link href="/menu">Menu</Link>
             </p>
             <p className="pr-2">
+              <Link href="/About">About</Link>
+            </p>
+            <p className="pr-2">
               <Link href="/#contact">Contact</Link>
             </p>
           </div>
