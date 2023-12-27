@@ -9,7 +9,7 @@ export default function ParticularDish({params}) {
   const cName = getChefName(item)
   return (
   <>
-    <h1> route is: {params.slug}</h1>
+    {/* <h1> route is: {params.slug}</h1> */}
   	<div className='mx-64'>
         <img src={item.image} alt="img" className="h-56"/>
         <h1 className='text-3xl my-3'>{item.name}</h1>

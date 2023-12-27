@@ -10,8 +10,8 @@ export default function IndividualChef({ params }) {
       <div className="px-56 ">
         <h1>{params.slug}</h1>
 
-        <h1 className="text-xl">Random Name {chef.name}</h1>
-        <h1 className="text-xl">Preferred Cusine {chef.category}</h1>
+        <h1 className="text-xl"> Name Of the chef: {chef.name}</h1>
+        <h1 className="text-xl">Preferred Cusine :{chef.category}</h1>
         <h1 className="text-xl">Chef's Menu</h1>
         <div className=" flex flex-wrap justify-evenly items-center">
           {chefDishes.map((d) => {

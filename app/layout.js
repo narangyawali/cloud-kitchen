@@ -17,7 +17,10 @@ export default function RootLayout({ children }) {
     <html lang="en" className=''>
       <body className={inter.className}>
       <NavBar/>
+      <div className='min-h-[75vh]'>
+
         {children}
+      </div>
     		<div className='text-center py-8 border-t-2'>
           © 2023 All rights reserved
         </div>

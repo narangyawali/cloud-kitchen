@@ -33,12 +33,12 @@ function Chef(){
         <button className="h-10 border border-blue-500 rounded-xl text-xl p-1">Add One</button>
         </div>
         <div className=" flex flex-wrap justify-evenly items-center">
+				{/* <MenuItem/>
 				<MenuItem/>
 				<MenuItem/>
 				<MenuItem/>
 				<MenuItem/>
-				<MenuItem/>
-				<MenuItem/>
+				<MenuItem/> */}
 
         </div>
       </section>
