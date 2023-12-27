@@ -8,7 +8,7 @@ export default function IndividualChef({ params }) {
   return (
     <>
       <div className="px-56 ">
-        <h1>{params.slug}</h1>
+        {/* <h1>{params.slug}</h1> */}
 
         <h1 className="text-xl"> Name Of the chef: {chef.name}</h1>
         <h1 className="text-xl">Preferred Cusine :{chef.category}</h1>
