@@ -1,23 +1,24 @@
+
 import { NextResponse } from "next/server";
-import { Chef } from "@/db/models";
+import { Customer } from "@/db/models";
 import db from "@/db/db";
 import {cookies} from "next/headers"
 db()
 export async function POST(request) {
     const body = await request.json()
-  const chef = new Chef({
+  const customer = new Customer({
     email: body.email,
     password: body.password,
   });
 
-  await chef.save();
+  await customer.save();
 
  cookies().set("fname", "chf");
- cookies().set("ischef", "true");
- cookies().set("_cre", JSON.parse(chef));
+ cookies().set("ischef", "false");
+ cookies().set("_cre", customer);
  cookies().set("fname","chf")
 console.log(body);
-return NextResponse.json(chef)
+return NextResponse.json(customer)
 
 
 }

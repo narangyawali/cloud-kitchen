@@ -36,6 +36,9 @@ const chefSchema = new Schema({
 	},
 	email:{
 		type:String,
+	},
+	password:{
+		type:String
 	},	
 	img:String,
 
