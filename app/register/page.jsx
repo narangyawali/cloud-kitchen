@@ -13,7 +13,7 @@ export default function Register() {
         <div>
         {/* <label htmlFor="password">Password</label> */}
         <input type="password" name="password" id="" placeholder='Input password' className='h-10 pl-3 my-5 border border-red-300 w-80 rounded-2xl ' />
-        <div className='flex flex-col my-2 text-center text-lg'>
+        {/* <div className='flex flex-col my-2 text-center text-lg'>
           <div className=''>
 
           <label htmlFor="role"> Register as chef</label>
@@ -24,9 +24,14 @@ export default function Register() {
           <label htmlFor="role"> Register as customer</label>
         <input type="radio" name="role" value={"customer"} id="" />
           </div>
+        </div> */}
         </div>
+        <h1 className='text-2xl'>Register</h1>
+        <div className='flex '>
+
+        <input type="button" value="As Chef" className='h-8 border border-slate-600 cursor-pointer w-40 rounded-2xl text-xl bg-blue-300' />
+        <input type="button" value="As Customer" className='h-8 border border-slate-600 cursor-pointer w-40 rounded-2xl text-xl bg-blue-300' />
         </div>
-        <input type="button" value="Register" className='h-8 border border-slate-600 cursor-pointer w-80 rounded-2xl text-xl bg-blue-300' />
     <p className='my-5'>Or just login</p>
 	<Link className='h-8 border border-slate-600 cursor-pointer w-80 rounded-2xl text-xl bg-blue-300 text-center' href={"/login"}> Login</Link>
     </div>

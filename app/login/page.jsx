@@ -14,7 +14,11 @@ export default function Login() {
         {/* <label htmlFor="password">Password</label> */}
         <input type="password" name="password" id="" placeholder='Input password' className='h-10 pl-3 my-5 border border-red-300 w-80 rounded-2xl ' />
         </div>
-        <input type="button" value="Login" className='h-8 border border-slate-600 cursor-pointer w-80 rounded-2xl text-xl bg-blue-300' />
+        <h1 className='text-2xl'>Login</h1>
+        <div className='flex'>
+        <input type="button" value="As Chef" className='h-8 border border-slate-600 cursor-pointer w-40 rounded-2xl text-xl bg-blue-300' />
+        <input type="button" value="As Customer" className='h-8 border border-slate-600 cursor-pointer w-40 rounded-2xl text-xl bg-blue-300' />
+        </div>
     <p className='my-5'>Or just Register</p>
 	<Link className='h-8 border border-slate-600 cursor-pointer w-80 rounded-2xl text-xl bg-blue-300 text-center' href={"/register"}> Register</Link>
     </div>
