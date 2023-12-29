@@ -12,7 +12,7 @@ export async function PATCH(request) {
     const body = await request.json()
     
     const cre= JSON.parse(cookies().get("_cre").value)
-    console.log(JSON.parse(cookies().get("_cre").value).email);
+    // console.log(JSON.parse(cookies().get("_cre").value).email);
     const chef = await Customer.findOneAndUpdate(
     {
       email: cre.email,

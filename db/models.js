@@ -53,7 +53,7 @@ const chefSchema = new Schema({
 const itemSchema= new Schema({
 
 	name:String,
-	img:String,
+	image:String,
 	price:Number,
 	description:String,
 	chef:{

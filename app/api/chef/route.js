@@ -29,3 +29,9 @@ export async function PATCH(request) {
   cookies().set("ischef", "true");
  return NextResponse.json(chef)
 }
+
+export async function GET(request){
+
+  const chefs = await Chef.find()
+  return NextResponse.json(chefs)
+}
