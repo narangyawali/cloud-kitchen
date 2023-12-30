@@ -5,12 +5,11 @@ import useSWR from 'swr'
 
 
 export default function  UserNav() {
-   const name ="ddd"
   //  const res =  fetch("/")
-	const {data,error, isLoading} = useSWR("http://localhost:8080/",fetcher)
+	// const {data,error, isLoading} = useSWR("http://localhost:8080/",fetcher)
 	// const {data,error, isLoading} = useSWR("https://api.github.com/repos/narangyawali/dino_game",fetcher)
-  if (error) return <h1>{console.log(error)}Error</h1>
-  if (data) return <Log name={data}/>
+  // if (error) return <h1>{console.log(error)}Error</h1>
+  // if (data) return <Log name={data}/>
 
   return (
  <>

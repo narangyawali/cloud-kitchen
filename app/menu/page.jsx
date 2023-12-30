@@ -1,11 +1,15 @@
-
+"use client"
 import React from 'react'
 import Link from "next/link";
 
 import { dish, } from '@/data'
 import { items ,chefs} from '@/data/items';
+import useSWR from 'swr'; 
+import { fetcher } from '@/lib';
 
 function Menu() {
+    const {data, error , loading }= useSWR("/api/items",fetcher)
+    if (data) {console.log(data);}
   return (
    <>
    <h1 className='text-2xl my-5 ml-56 '>Best food around your location</h1>
