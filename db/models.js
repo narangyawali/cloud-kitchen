@@ -82,6 +82,10 @@ const orderSchema= new Schema({
 
 		type:Date,
 		default:Date.now()
+	},
+	approvedByChef:{
+		type:Boolean,
+		default:false
 	}
 
 
