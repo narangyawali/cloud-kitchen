@@ -2,7 +2,7 @@
 import { fetcher } from '@/lib'
 import Link from 'next/link'
 import useSWR from 'swr'
-
+import { useCookies } from 'react-cookie'
 
 export default function  UserNav() {
   //  const res =  fetch("/")
@@ -11,17 +11,31 @@ export default function  UserNav() {
   // if (error) return <h1>{console.log(error)}Error</h1>
   // if (data) return <Log name={data}/>
 
-  return (
- <>
- <NotLog/>
- </>
-  )
+
+  const [cookies, setCookie, removeCookie] = useCookies();
+  // console.log(cookies["_cre"].email);
+  
+  if (cookies["_cre"] == "" ) {
+    return <NotLog/>
+  }
+  else{
+    return <Log name ="User"/>
+  }
+  // (cookies["_cre"].email == "") ?  <NotLog/>: <Log name="dd"/>
+
+//   return (
+//  <>
+//  <NotLog/>
+//  </>
+  // )
+
+
+
 }
 
 function Log({name}){
 return(<>
-{console.log(name)}
-	<p>Hello {name.msg}</p>
+	<p>Hello {name}</p>
 </>)
 }
 
