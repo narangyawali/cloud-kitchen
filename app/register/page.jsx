@@ -1,6 +1,54 @@
-import React from 'react'
+"use client"
+
 import Link from 'next/link'
+import { useState } from 'react'
 export default function Register() {
+
+
+  const [ email, setEmail ]= useState("")
+  const [ password, setPassword ]= useState("")
+
+
+
+  const handleClick= async (e)=>{
+
+    // console.log(email,password);
+    if (e.target.name == "chef") {
+       await register("chef")
+      // console.log(chef);
+
+      
+    }else{
+      await register("customer")
+      // console.log(customer);
+    }
+  }
+
+  const register= async(role)=>{
+
+
+		const data = await fetch(`/api/${role}/register`,{
+      method:"POST",
+      headers:{
+        'Accept': 'application/json',
+      'Content-Type': 'application/json'
+      },
+      body:JSON.stringify({
+        email,
+        password
+    
+      })
+    })
+    // const status = await data.status()
+    const result = await data.json()
+
+    console.log(result);
+
+
+  }
+	
+
+
   return (
   <>
 
@@ -8,29 +56,18 @@ export default function Register() {
     <div className='flex flex-col items-center justify-center w-full'>
         <div className='max-w-2xl'>
         {/* <label htmlFor="email">Email</label> */}
-        <input type="text" name="email" id="" placeholder='Input email' className='h-10 pl-3 border border-red-300 w-80 rounded-2xl' />
+        <input type="text" name="email" value={email} onChange={(e)=>{setEmail(e.target.value)}} id="" placeholder='Input email' className='h-10 pl-3 border border-red-300 w-80 rounded-2xl' />
         </div>
         <div>
         {/* <label htmlFor="password">Password</label> */}
-        <input type="password" name="password" id="" placeholder='Input password' className='h-10 pl-3 my-5 border border-red-300 w-80 rounded-2xl ' />
-        {/* <div className='flex flex-col my-2 text-center text-lg'>
-          <div className=''>
-
-          <label htmlFor="role"> Register as chef</label>
-        <input type="radio" name="role" value={"chef"} id=""  />
-          </div>
-          <div>
-
-          <label htmlFor="role"> Register as customer</label>
-        <input type="radio" name="role" value={"customer"} id="" />
-          </div>
-        </div> */}
+        <input type="password" name="password" value={password} onChange={(e)=>{setPassword(e.target.value)}} placeholder='Input password' className='h-10 pl-3 my-5 border border-red-300 w-80 rounded-2xl ' />
+      
         </div>
         <h1 className='text-2xl'>Register</h1>
         <div className='flex '>
 
-        <input type="button" value="As Chef" className='h-8 border border-slate-600 cursor-pointer w-40 rounded-2xl text-xl bg-blue-300' />
-        <input type="button" value="As Customer" className='h-8 border border-slate-600 cursor-pointer w-40 rounded-2xl text-xl bg-blue-300' />
+        <input type="button" value="As Chef" name='chef' onClick={handleClick} className='h-8 border border-slate-600 cursor-pointer w-40 rounded-2xl text-xl bg-blue-300' />
+        <input type="button" value="As Customer"name='customer' onClick={handleClick} className='h-8 border border-slate-600 cursor-pointer w-40 rounded-2xl text-xl bg-blue-300' />
         </div>
     <p className='my-5'>Or just login</p>
 	<Link className='h-8 border border-slate-600 cursor-pointer w-80 rounded-2xl text-xl bg-blue-300 text-center' href={"/login"}> Login</Link>
