@@ -1,27 +1,46 @@
+"use client"
 
 import { items } from "@/data/items"
-import { getChefName } from "@/lib"
+import { fetcher, getChefName } from "@/lib"
 import Link from "next/link"
+import useSWR from "swr"
 
 export default function ParticularDish({params}) {
 
   const item = items.find((i)=>i.id==params.slug)
-  const cName = getChefName(item)
-  return (
-  <>
-    {/* <h1> route is: {params.slug}</h1> */}
-  	<div className='mx-64'>
-        <img src={item.image} alt="img" className="h-56"/>
-        <h1 className='text-3xl my-3'>{item.name}</h1>
-        <h1 className='text-2xl my-3'>Rs: {item.price}</h1>
-        <h1 className='text-xl my-3'>Prepared by: 
-        <Link href={`/chef/${item.chefId}`}>
-        {cName} 
-        </Link>
-        </h1>
-        <h1 className='text-xl my-3'>Open Now</h1>
-        <button className='border border-blue-600 h-8 w-24 mb-11 bg-blue-500 rounded-2xl'> Add to cart</button>
-    </div>
-  </>
-  )
+  const url=`/api/items/${item}`
+  // const cName = getChefName(item)
+
+  const {data, error, loading}= useSWR(`/api/items/${params.slug}`,fetcher)
+
+  if (data) {
+    
+    return (
+    <>
+      {/* <h1> route is: {params.slug}</h1> */}
+      <div className='mx-64'>
+          <img src={data.image} alt="img" className="h-56"/>
+          <h1 className='text-3xl my-3'>{data.name}</h1>
+          <h1 className='text-2xl my-3'>Rs: {data.price}</h1>
+          <h1 className='text-xl my-3'>Prepared by: 
+          <Link href={`/chef/${data.chef}`}>
+          {  "chefName"} 
+          </Link>
+          </h1>
+          <h1 className='text-xl my-3'>Open Now</h1>
+          <button className='border border-blue-600 h-8 w-24 mb-11 bg-blue-500 rounded-2xl'> Add to cart</button>
+      </div>
+    </>
+    )
+  
+  }else if(error){
+    return(<>
+    <h1>error </h1>
+    </>)
+  }else{
+    return(<>
+    <h1>Loading</h1>
+    </>)
+  }
+
 }
