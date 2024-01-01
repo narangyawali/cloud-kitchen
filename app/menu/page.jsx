@@ -6,6 +6,7 @@ import { dish, } from '@/data'
 import { items ,chefs} from '@/data/items';
 import useSWR from 'swr'; 
 import { fetcher } from '@/lib';
+import OrderBtn from '@/components/orderBtn';
 
 function Menu() {
     const {data, error , loading }= useSWR("/api/items",fetcher)
@@ -67,8 +68,9 @@ function Card({dishItem}){
         </h1>
     </div>
     <div className='flex justify-between'>
-	<h1 className='ml-3'>order</h1>	
-	<h1 className='mr-3'>add to Cart</h1>	
+	{/* <h1 className='ml-3'>order</h1>	 */}
+    <OrderBtn dishId={dishItem._id} chef={dishItem.chef}  />
+	{/* <h1 className='mr-3'>add to Cart</h1>	 */}
     </div>
     </div>
     </>)

@@ -48,7 +48,8 @@ function Chef() {
   const [address, setAddresss] = useState("");
   const [isAvailable, setIsAvailable] = useState("");
 
-  const [show, setShow] = useState(false);
+  const [uploadShow, setUploadShow] = useState(false);
+  const [orderShow, setOrderShow] = useState(false);
 
   const handleClick = async () => {
     const data = await fetch(`/api/chef/`, {
@@ -145,14 +146,23 @@ function Chef() {
             />
             <button
               onClick={() => {
-                setShow(!show);
+                setUploadShow(!uploadShow);
               }}
               className="h-10 border border-blue-500 rounded-xl text-xl p-1"
             >
               Add One
             </button>
+            <button
+              onClick={() => {
+                setOrderShow(!orderShow);
+              }}
+              className="h-10 border border-blue-500 rounded-xl text-xl p-1"
+            >
+              My Orders
+            </button>
           </div>
-          <AddItem show={show} />
+          <AddItem show={uploadShow} />
+					<OrderList show={orderShow}/>
           <h1 className="text-2xl">Your Menu</h1>
           <div className=" flex flex-wrap justify-evenly items-center">
             {/* <MenuItem/>
@@ -166,6 +176,40 @@ function Chef() {
       </div>
     </>
   );
+}
+
+const approveOrder= async(orderId)=>{
+
+  const data = await fetch(`/api/order/list`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      orderId
+    }),
+  });
+  // const status = await data.status()
+  const result = await data.json();
+}
+
+function OrderList({show}){
+
+  const {data, error , loading}= useSWR("/api/order/list/",fetcher)
+
+
+  if (data) {
+	console.log(data);
+  }
+
+  if (show) {
+  return(<>
+        <div className="border border-blue-500 h-56 w-96 mx-96 absolute top-56 ">
+  <h1>Orderlist</h1>
+  			</div>
+  </>)
+  }
 }
 
 function AddItem({ show }) {
@@ -203,7 +247,7 @@ function AddItem({ show }) {
 
   }
 
-  if (true) {
+  if (show) {
     return (
       <>
         <div className="border border-blue-500 h-56 w-96 mx-96 absolute top-56">
