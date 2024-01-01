@@ -37,10 +37,12 @@ const chefSchema = new Schema({
 	email:{
 		type:String,
 	},
+	cusine:String,
 	password:{
 		type:String
 	},	
 	img:String,
+	description:String,
 
 	address:{
         type:String,

@@ -21,6 +21,8 @@ export async function PATCH(request) {
       email: cre.email,
       password: cre.password,
       name: body.name,
+      cusine:body.cusine,
+      description:body.description,
       location: body.location,
       address: body.address,
     }

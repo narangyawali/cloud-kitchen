@@ -35,7 +35,9 @@ export default function  UserNav() {
 
 function Log({name}){
 return(<>
+<Link href="/profile">
 	<p>Hello {name}</p>
+</Link>
 </>)
 }
 
