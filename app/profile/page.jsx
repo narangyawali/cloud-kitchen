@@ -1,5 +1,7 @@
 "use client";
 
+import { OrderList } from "@/components/orderList";
+import { AddItem } from "@/components/addItem";
 import { convertBase64, fetcher } from "@/lib";
 import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
@@ -178,116 +180,6 @@ function Chef() {
   );
 }
 
-const approveOrder= async(orderId)=>{
-
-  const data = await fetch(`/api/order/list`, {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      orderId
-    }),
-  });
-  // const status = await data.status()
-  const result = await data.json();
-}
-
-function OrderList({show}){
-
-  const {data, error , loading}= useSWR("/api/order/list/",fetcher)
-
-
-  if (data) {
-	console.log(data);
-  }
-
-  if (show) {
-  return(<>
-        <div className="border border-blue-500 h-56 w-96 mx-96 absolute top-56 ">
-  <h1>Orderlist</h1>
-  			</div>
-  </>)
-  }
-}
-
-function AddItem({ show }) {
-
-  const [file, setFile]= useState("")
-  const handleChange = async(e)=>{
-    const f = e.target.files[0]
-    const fileData= await convertBase64(f)
-    setFile(fileData)
-    console.log(fileData);
-  }
-
-	const [name,setName]= useState("")
-	const [price,setPrice]= useState("")
-	const [description,setDescription]= useState("")
-
-  const upload = async()=>{
-
-		const data = await fetch(`/api/items/`,{
-      method:"POST",
-      headers:{
-        'Accept': 'application/json',
-      'Content-Type': 'application/json'
-      },
-      body:JSON.stringify({
-   		name,
-      image:file,
-      price,
-      description 
-      })
-    })
-    // const status = await data.status()
-    const result = await data.json()
-    console.log(result);
-
-  }
-
-  if (show) {
-    return (
-      <>
-        <div className="border border-blue-500 h-56 w-96 mx-96 absolute top-56">
-          <h1>Add Item</h1>
-          <input
-          	value={name}
-            onChange={(e)=>{setName(e.target.value)}}
-            type="text"
-            placeholder="name"
-            className="border border-b-blue-500"
-          />
-          <input
-          	value={price}
-            onChange={(e)=>{setPrice(e.target.value)}}
-            type="number"
-            placeholder="price"
-            className="border border-b-blue-500"
-          />
-          <input
-          	value={description}
-            onChange={(e)=>{setDescription(e.target.value)}}
-            type="text"
-            placeholder="description"
-            className="border border-b-blue-500"
-          />
-          <input  onChange={handleChange} type="file" />
-          <br />
-          <input type="button" value="upload" onClick={upload} className="cursor-pointer border border-blue-500 h-7 w-28" />
-        </div>
-      </>
-    );
-  }
-}
-function MenuItem() {
-  return (
-    <>
-      <div className="h-64 w-64 my-8 mx-5 border border-blue-500"></div>
-    </>
-  );
-}
 
 function Customer() {
   const [name, setName] = useState("");
@@ -295,7 +187,7 @@ function Customer() {
   const [address, setAddresss] = useState("");
   const [location, setLocation] = useState([0]);
   const [update, setUpdate] = useState("");
-
+  
   useEffect(() => {
     const getCustomer = async () => {
       const res = await fetch("/api/customer/me");
@@ -369,5 +261,17 @@ function Customer() {
     </>
   );
 }
+
+
+
+
+function MenuItem() {
+  return (
+    <>
+      <div className="h-64 w-64 my-8 mx-5 border border-blue-500"></div>
+    </>
+  );
+}
+
 
 export { MenuItem };
