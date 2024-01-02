@@ -1,7 +1,7 @@
 
 import db from "@/db/db";
 import { NextResponse } from "next/server";
-import { Order } from "@/db/models";
+import { Order ,Customer , Item} from "@/db/models";
 import { cookies } from "next/headers";
 db()
 
@@ -32,8 +32,24 @@ export async function GET(request){
 
   const approvedOrderList =  await Order.find({"customer":customerId})
 
-  return NextResponse.json(approvedOrderList)
+  const list = [];
 
+  await Promise.all(
+    approvedOrderList.map(async (order) => {
+      const dish = await Item.findOne({ _id: order.item });
+      const customer = await Customer.findOne({ _id: order.customer });
+      const individualOrder = {
+        orderId: order._id,
+        dishName: dish.name,
+        dishImage: dish.image,
+        cName: customer.name,
+        number: order.number,
+      };
+      list.push(individualOrder);
+      console.log(individualOrder);
+    })
+  );
 
+  return NextResponse.json(list);
 
 }

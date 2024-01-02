@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 
 import useSWR from "swr";
+import OrderReport from "@/components/orderReport";
 
 function Page() {
   const [cookies, setCookie, removeCookie] = useCookies();
@@ -187,6 +188,7 @@ function Customer() {
   const [address, setAddresss] = useState("");
   const [location, setLocation] = useState([0]);
   const [update, setUpdate] = useState("");
+
   
   useEffect(() => {
     const getCustomer = async () => {
@@ -257,6 +259,10 @@ function Customer() {
           onClick={handleClick}
           className="h-10 border cursor-pointer border-blue-500 rounded-xl text-xl p-1"
         />
+
+      <br />
+      <h1 className="text-center text-2xl">Your Approved Order List</h1> 
+      <OrderReport/>
       </section>
     </>
   );
