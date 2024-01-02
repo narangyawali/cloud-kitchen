@@ -5,10 +5,13 @@ import { useState } from "react"
 export default function OrderBtn({dishId,chef}) {
 	const [show , setShow]= useState(false)
 	const [number , setNumber]= useState(1)
+  const [item,setItem]= useState(dishId)
+  const [chefid,setChefid]= useState(chef)
   
 
-  const placeOrder= async(role)=>{
+  const placeOrder= async()=>{
     // const { data, error, isLoading} = useSWR("/api/chef/login",fetcher)
+    console.log(item,chefid,number);
 		const data = await fetch(`/api/order/`,{
       method:"POST",
       headers:{
@@ -16,8 +19,8 @@ export default function OrderBtn({dishId,chef}) {
       'Content-Type': 'application/json'
       },
       body:JSON.stringify({
-        item:dishId,
-        chef:chef,
+        itemId:item,
+        chefId:chefid,
         number:number
     
       })
@@ -40,11 +43,12 @@ export default function OrderBtn({dishId,chef}) {
 
     <div className="border border-blue-400">
         <input 
+        value={number}
         onChange={(e)=>{setNumber(e.target.value)}}
         type="number" placeholder="No Of Order" />
     </div>
     <button
-    
+   		onClick={placeOrder} 
      className="h-6  border border-blue-500 bg-blue-200">
         Place Order
     </button>
