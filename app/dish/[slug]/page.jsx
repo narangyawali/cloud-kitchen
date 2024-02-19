@@ -4,6 +4,7 @@ import { items } from "@/data/items"
 import { fetcher, getChefName } from "@/lib"
 import Link from "next/link"
 import useSWR from "swr"
+import OrderBtn from "@/components/orderBtn"
 
 export default function ParticularDish({params}) {
 
@@ -13,6 +14,7 @@ export default function ParticularDish({params}) {
 
   const {data, error, loading}= useSWR(`/api/items/${params.slug}`,fetcher)
 
+    // <OrderBtn dishId={dishItem._id} chef={dishItem.chef}  />
   if (data) {
     
     return (
@@ -28,6 +30,8 @@ export default function ParticularDish({params}) {
           </Link>
           </h1>
           <h1 className='text-xl my-3'>Open Now</h1>
+			<OrderBtn dishId={data._id} chef={data.chef}  />
+			<br/>
           <button className='border border-blue-600 h-8 w-24 mb-11 bg-blue-500 rounded-2xl'> Add to cart</button>
       </div>
     </>
