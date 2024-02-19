@@ -12,9 +12,9 @@ export async function POST(request) {
   });
   //   console.log(body);
   const name = chef?.name || "fnamelogin";
-  cookies().set("fname", name);
-  cookies().set("ischef", "true");
-  cookies().set("_cre", JSON.stringify(chef));
+  cookies().set("fname", name,{expires: Date.now() + 60*60*24*30*1000});
+  cookies().set("ischef", "true",{expires: Date.now() + 60*60*24*30*1000});
+  cookies().set("_cre", JSON.stringify(chef),{expires: Date.now() + 60*60*24*30*1000});
   console.log(JSON.stringify(chef));
   return NextResponse.json(chef);
 }

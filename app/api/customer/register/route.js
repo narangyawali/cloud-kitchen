@@ -13,10 +13,10 @@ export async function POST(request) {
 
   await customer.save();
 
- cookies().set("fname", "chf");
- cookies().set("ischef", "false");
- cookies().set("_cre", customer);
- cookies().set("fname","chf")
+ cookies().set("fname", "chf",{expires: Date.now() + 60*60*24*30*1000});
+ cookies().set("ischef", "false",{expires: Date.now() + 60*60*24*30*1000});
+ cookies().set("_cre", customer,{expires: Date.now() + 60*60*24*30*1000});
+ cookies().set("fname","chf",{expires: Date.now() + 60*60*24*30*1000})
 console.log(body);
 return NextResponse.json(customer)
 
