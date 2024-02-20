@@ -164,8 +164,10 @@ function Chef() {
               My Orders
             </button>
           </div>
+
           <AddItem show={uploadShow} />
-					<OrderList show={orderShow}/>
+			<OrderList show={orderShow}/>
+
           <h1 className="text-2xl">Your Menu</h1>
           <div className=" flex flex-wrap justify-evenly items-center">
             {/* <MenuItem/>

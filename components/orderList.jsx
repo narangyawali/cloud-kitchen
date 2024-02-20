@@ -20,7 +20,7 @@ export function OrderList({ show }) {
     console.log(data);
   }
 
-  if (data) {
+  if (data && show) {
     return (
       <>
         <div className="border border-blue-500 h-56 min-w-96 mx-96 absolute top-56 ">
