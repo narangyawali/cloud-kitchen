@@ -8,6 +8,7 @@ import { useCookies } from "react-cookie";
 
 import useSWR from "swr";
 import OrderReport from "@/components/orderReport";
+import { GenerateMenu } from "@/components/generateChefMenu";
 
 function Page() {
   const [cookies, setCookie, removeCookie] = useCookies();
@@ -40,16 +41,20 @@ function Chef() {
       setCusine(result?.cusine);
       setDescription(result?.description);
       setAddresss(result?.address);
+	  setMail(result?.email)
+	  setChefId(result?._id)
     };
     getChef();
   }, [update]);
 
   const [name, setName] = useState("");
+  const [chefId,setChefId]= useState("")
   const [cusine, setCusine] = useState("");
   const [description, setDescription] = useState("");
+  const [mail,setMail]= useState()
   const [location, setLocation] = useState([0]);
   const [address, setAddresss] = useState("");
-  const [isAvailable, setIsAvailable] = useState("");
+  const [isAvailable, setIsAvailable] = useState(true);
 
   const [uploadShow, setUploadShow] = useState(false);
   const [orderShow, setOrderShow] = useState(false);
@@ -77,7 +82,7 @@ function Chef() {
   return (
     <>
       <div className="px-64 pb-10">
-        <h1 className="text-red-500">Chef</h1>
+        <h1 className="text-red-500 text-2xl text-center">Welcome Back Chef : {mail}</h1>
         <section classname="px-56 pb-10 mx-56 ">
           <h1 className="text-2xl">Your Profile</h1>
           <input
@@ -130,9 +135,10 @@ function Chef() {
           <input
             type="checkbox"
             id="switch"
-            value={isAvailable}
+			checked={isAvailable}
+            // value={isAvailable}
             onChange={(e) => {
-              setIsAvailable(e.target.value);
+              setIsAvailable(!isAvailable);
             }}
             className="h-5 w-5 mt-3"
           />
@@ -170,12 +176,8 @@ function Chef() {
 
           <h1 className="text-2xl">Your Menu</h1>
           <div className=" flex flex-wrap justify-evenly items-center">
-            {/* <MenuItem/>
-				<MenuItem/>
-				<MenuItem/>
-				<MenuItem/>
-				<MenuItem/>
-      <MenuItem/> */}
+			<GenerateMenu chefId={chefId} />
+
           </div>
         </section>
       </div>
@@ -227,7 +229,7 @@ function Customer() {
     <>
       <section className="px-56 pb-10">
         <h1 className="text-2xl">Your Profile</h1>
-        <h1 className="text-2xl">Welcome back {email}</h1>
+        <h1 className="text-2xl">Welcome back :{email}</h1>
         <input
           type="text"
           placeholder="Full Name"
