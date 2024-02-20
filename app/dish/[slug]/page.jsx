@@ -16,6 +16,7 @@ export default function ParticularDish({params}) {
 
     // <OrderBtn dishId={dishItem._id} chef={dishItem.chef}  />
   if (data) {
+		console.log(data)
     
     return (
     <>
@@ -26,7 +27,7 @@ export default function ParticularDish({params}) {
           <h1 className='text-2xl my-3'>Rs: {data.price}</h1>
           <h1 className='text-xl my-3'>Prepared by: 
           <Link href={`/chef/${data.chef}`}>
-          {  "chefName"} 
+          {  data.chefName} 
           </Link>
           </h1>
           <h1 className='text-xl my-3'>Open Now</h1>
