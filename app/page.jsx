@@ -28,6 +28,8 @@ export default function Home() {
 
         <h1 id="contact" className="text-center mt-5">Don't Hesitate</h1>
         <h1 className="text-center text-2xl text-orange-500 font-bold">Contact Us </h1>
+        <h1 className="text-center text-2xl text-orange-500 font-bold">Objectives </h1>
+        <h1 className="text-center mx-44">To provide high quality, personalized home cooked food</h1>
         <h1 className="text-center">+977987654321</h1>
       </section>
     </>
