@@ -23,7 +23,7 @@ export default function Home() {
 
         <h1 className="text-center mt-5">Our Story</h1>
         <h1 className="text-center text-2xl font-semibold text-orange-500 ">About Us </h1>
-					<h1 className="text-center mx-44">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis accusantium sed minus officia temporibus quae impedit laudantium molestiae architecto esse, natus maxime doloribus accusamus! Accusamus, quos minima. Ullam, ipsum recusandae? Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis accusantium sed minus officia temporibus quae impedit laudantium molestiae architecto esse, natus maxime doloribus accusamus! Accusamus, quos minima. Ullam, ipsum recusandae?</h1>
+					<h1 className="text-center mx-44">Home Based Food Service is an online web-based platform that provides high-quality and personalized home-cooked food. This platform not only satisfies the growing demand for convenient services for customers but also plays a pivotal role in supporting women in becoming successful home-based entrepreneurs.</h1>
 				
 
         <h1 id="contact" className="text-center mt-5">Don't Hesitate</h1>
