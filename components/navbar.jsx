@@ -24,9 +24,15 @@ function NavBar() {
             </p>
           </div>
         </div>
-        <div className="flex ">
+				<div className="flex ">
+					<p className="pr-2">
+						<Link href="/login">Login</Link>
+					</p>
+					<p className="pr-2">
+						<Link href="/register">Register</Link>
+					</p>
 					<UserNav/>
-        </div>
+				</div>
       </div>
     </>
   );
