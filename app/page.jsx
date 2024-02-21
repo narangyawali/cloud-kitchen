@@ -9,9 +9,9 @@ export default function Home() {
         <div>
           <h1 className="text-2xl">Everything is Better With</h1>
           <h1 className="text-2xl text-orange-500 text font-semibold">Good Meal</h1>
-          <h1 className="mt-28"> Hello WORLD Lorem ipsum dolor, sit amet consectetur adipisicing elit. </h1>
-          <h1 className="">  ipsum dolor, sit amet consectetur adipisicing elit. </h1>
-          <h1>consectetur adipisicing elit. Veritatis accusantium sed minus officia </h1>
+          <h1 className="mt-28"> A digital platform that connects skilled home chefs with eager customers. </h1>
+          <h1 className="">  </h1>
+          <h1> </h1>
         </div>
         <div>
           <img src="/img/thakali.jpg" alt="ddd" className="h-72 rounded-3xl" />
