@@ -78,6 +78,16 @@ function Chef() {
     const result = await data.json();
     setUpdate(result);
   };
+	const handleLocation = async (e)=>{
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition((position)=>{
+				const locArr=[position.coords.latitude,position.coords.longitude]
+			});
+		} else { 
+			console.log("errror while fetching location")
+		}
+
+	}
   // const
   return (
     <>
@@ -128,7 +138,11 @@ function Chef() {
             className="border border-black h-8 pl-2 my-2 "
           />
           <br />
-          <button className="h-10 border border-blue-500 rounded-xl text-xl p-1">
+          <button
+			onClick={(e)=>{
+							handleLocation()
+						}}
+			className="h-10 border border-blue-500 rounded-xl text-xl p-1">
             Get Location
           </button>
           <br />
@@ -225,6 +239,16 @@ function Customer() {
     setUpdate(result);
   };
 
+	const handleLocation = async (e)=>{
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition((position)=>{
+				const locArr=[position.coords.latitude,position.coords.longitude]
+			});
+		} else { 
+			console.log("errror while fetching location")
+		}
+
+	}
   return (
     <>
       <section className="px-56 pb-10">
@@ -252,7 +276,9 @@ function Customer() {
         />
         <br />
 
-        <button className="h-10 border border-blue-500 rounded-xl text-xl p-1">
+        <button
+			onClick={handleLocation}
+			className="h-10 border border-blue-500 rounded-xl text-xl p-1">
           Get Location
         </button>
         <br />
