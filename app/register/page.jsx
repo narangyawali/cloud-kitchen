@@ -12,6 +12,7 @@ export default function Register() {
 
 
 
+  const router = useRouter()
   const handleClick= async (e)=>{
 
     // console.log(email,password);

@@ -82,6 +82,7 @@ function Chef() {
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition((position)=>{
 				const locArr=[position.coords.latitude,position.coords.longitude]
+				console.log(locArr)
 			});
 		} else { 
 			console.log("errror while fetching location")
