@@ -36,7 +36,7 @@ export default function OrderBtn({dishId,chef}) {
 
 	<button 
     onClick={()=>{setShow(!show)}}
-    className="w-16 h-8 border border-blue-500">
+    className="w-16 h-8 rounded-xl bg-orange-500 text-black	 hover:text-white ml-2 ">
         Order 
     </button>  
     <div className={show?"visible":"hidden"}>

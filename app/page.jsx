@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link"
 
 export default function Home() {
 
@@ -28,7 +29,7 @@ export default function Home() {
 	return (
 		<>
 			<section className="mx-64 py-12">
-				<div className="flex justify-between">
+				<div className="flex justify-between items-center">
 
 					<div>
 						<h1 className="text-2xl">Everything is Better With</h1>
@@ -44,6 +45,9 @@ export default function Home() {
 
 				<h1 className="text-center mt-5">Checkout</h1>
 				<h1 className="text-center text-2xl text-orange-500 font-semibold">Our Best Sellers</h1>
+				<div className="flex items-center justify-center my-7">
+				<Link href="/new-menu" className="bg-orange-500 p-3 rounded-xl font-semibold text-white" >View Our Menu </Link>
+				</div>
 
 				<div className=" border-2 border-orange-200 my-5 py-8">
 					<h1 className="text-center mt-5">Why Choose Us </h1>
@@ -54,7 +58,7 @@ export default function Home() {
 							arr.map((e)=>{
 								return(
 								<div key={e.heading} className="bg-white h-44 w-44 p-4 rounded-xl ">
-									<Image height="22" width="22" src={e.img} />
+									<Image height="22" width="22" src={e.img} className="" />
 									<h1 className="text-[12px] font-bold">{e.heading}</h1>
 									<h1 className="text-xs"> {e.description}</h1>
 								</div>)

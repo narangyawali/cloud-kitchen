@@ -62,7 +62,7 @@ function Card({dishItem}){
     return(<>
     <div className='h-96 w-96 border border-orange-500 m-3 rounded-2xl'>
         <Link href={`/dish/${dishItem._id}`}>
-    <img src={dishItem.image} alt="" className='w-full h-64  rounded-2xl' />
+    <img src={dishItem.image} alt="" className='w-full h-60  rounded-2xl' />
         </Link>
     <div className='flex justify-between'>
     	<h1 className='ml-3'> {dishItem.name}</h1>
@@ -72,6 +72,7 @@ function Card({dishItem}){
         <h1 className='ml-3'>Tags: {dishItem.tags || ""}</h1>
         <h1 className='mr-3'>price:{dishItem.price}</h1>
     </div>
+	<h1 className="mx-3">{dishItem.description}</h1>
     <div>
         <h1 className='ml-3'> Prepared By: 
              <Link href={`/chef/${dishItem.chef}`}> {dishItem.chefName}</Link> 
