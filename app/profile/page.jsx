@@ -52,7 +52,7 @@ function Chef() {
   const [cusine, setCusine] = useState("");
   const [description, setDescription] = useState("");
   const [mail,setMail]= useState()
-  const [location, setLocation] = useState([0]);
+  const [location, setLocation] = useState({x:0,y:0});
   const [address, setAddresss] = useState("");
   const [isAvailable, setIsAvailable] = useState(true);
 
@@ -82,6 +82,7 @@ function Chef() {
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition((position)=>{
 				const locArr=[position.coords.latitude,position.coords.longitude]
+				setLocation({x:locArr[0],y:locArr[1]})
 				console.log(locArr)
 			});
 		} else { 
@@ -205,7 +206,7 @@ function Customer() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [address, setAddresss] = useState("");
-  const [location, setLocation] = useState([0]);
+  const [location, setLocation] = useState({x:0,y:0})
   const [update, setUpdate] = useState("");
 
   
@@ -244,6 +245,8 @@ function Customer() {
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition((position)=>{
 				const locArr=[position.coords.latitude,position.coords.longitude]
+				setLocation({x:locArr[0],y:locArr[1]})
+				console.log(locArr)
 			});
 		} else { 
 			console.log("errror while fetching location")

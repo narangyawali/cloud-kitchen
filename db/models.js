@@ -2,6 +2,14 @@ import mongoose from  "mongoose"
 
 const Schema = mongoose.Schema;
 
+const locationSchema = new Schema({
+	x:{
+		type:Number,
+	},
+	y:{
+		type:Number,
+	}
+})
 const customerSchema = new Schema({
     name : {
         type: String,
@@ -25,7 +33,7 @@ const customerSchema = new Schema({
         type:String,
     },
     location:{
-        type:[Number],
+        type:locationSchema,
     },
 	description:String,
 })
@@ -48,7 +56,7 @@ const chefSchema = new Schema({
         type:String,
     },
     location:{
-        type:[Number],
+        type:locationSchema,
     },
 }) 
 
