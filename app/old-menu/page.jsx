@@ -33,13 +33,6 @@ function Menu() {
     }
 }
 
-const getChefName=(dish)=>{
-
-    // return dish.chefId;
-   const chef= chefs.find((c)=> c.chefId == dish.chefId ).name
-   return chef
-    
-}
 
 function Card({dishItem}){
 

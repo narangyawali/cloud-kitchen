@@ -38,8 +38,8 @@ function Menu() {
 function IterateMenu({data}){
 
         return (
-         <div key={data.name}>
-         <h1 className='text-2xl my-5 ml-56 '>Best food around your location</h1>
+         <div key={data.name} className="py-4">
+         <h1 className='text-2xl py-5 ml-56 '>Best food around your location</h1>
          <section className='flex flex-wrap justify-around '>
           {data.map(e=>{return(
               <div key={data.name}>
@@ -60,7 +60,7 @@ function Card({dishItem}){
     // console.log(n);
 
     return(<>
-    <div className='h-96 w-96 border border-blue-500 m-3 rounded-2xl'>
+    <div className='h-96 w-96 border border-orange-500 m-3 rounded-2xl'>
         <Link href={`/dish/${dishItem._id}`}>
     <img src={dishItem.image} alt="" className='w-full h-64  rounded-2xl' />
         </Link>
@@ -74,7 +74,7 @@ function Card({dishItem}){
     </div>
     <div>
         <h1 className='ml-3'> Prepared By: 
-             <Link href={`/chef/${dishItem.chefId}`}> {dishItem.chefName}</Link> 
+             <Link href={`/chef/${dishItem.chef}`}> {dishItem.chefName}</Link> 
             {/* <Link href={`/chef/${dishItem.chefId}`}>{dishItem.chefId}</Link> */}
         </h1>
     </div>

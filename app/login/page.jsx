@@ -1,7 +1,4 @@
 "use client"
-import useSWR from 'swr'
-import Link from 'next/link'
-import { fetcher } from '@/lib'
 import {useRouter} from "next/navigation"
 import { useState } from 'react'
 export default function Login() {
@@ -58,7 +55,7 @@ export default function Login() {
   return (
     <>
     {/* <h1 className='w-full mb-8 text-4xl text-center text-primary'>Login</h1> */}
-    <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign in to your account</h2>
+    <h2 class="pt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign in to your account</h2>
 
     <div className='flex flex-col items-center justify-center w-full'>
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
@@ -74,9 +71,9 @@ export default function Login() {
         </div>
         
         <div className='flex'>
-        <input type="button" value="As Chef" name="chef" onClick={handleClick} className="m-3 flex w-full justify-center rounded-md bg-indigo-600 px-5 py-2 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" />
+        <input type="button" value="As Chef" name="chef" onClick={handleClick} className="m-3 flex w-full justify-center rounded-md bg-orange-500 px-5 py-2 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" />
         
-        <input type="button" value="As Customer" name="customer" onClick={handleClick} className="m-3 flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"/>
+        <input type="button" value="As Customer" name="customer" onClick={handleClick} className="m-3 flex w-full justify-center rounded-md bg-orange-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"/>
         </div>
 				{
  //    <p className='my-5'>Or just Register</p>
