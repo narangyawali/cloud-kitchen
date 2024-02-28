@@ -7,49 +7,38 @@ import { items ,chefs} from '@/data/items';
 import useSWR from 'swr'; 
 import { fetcher } from '@/lib';
 import OrderBtn from '@/components/orderBtn';
-import { haversine} from "@/lib"
 
 function Menu() {
     const {data, error , loading }= useSWR("/api/items",fetcher)
-	const {data:cus_data,error:cus_error,loading:cus_loading} = useSWR("/api/customer/me",fetcher)
+    if (data) {console.log(data);}
 
-    if (data &&cus_data) {
-		// console.log(data)
-		const data_with_distance = data.map((e)=>{
-			let distance = haversine(cus_data.location.x,cus_data.location.y,e.chefLocation.x,e.chefLocation.y) 
-			return{
-				distance,
-				...e
-			}
-		})
-		const sorted_data = data_with_distance.sort((first,second)=>first.distance-second.distance)
-		console.log(sorted_data)
-		return(<IterateMenu data={sorted_data}/>)
-
-	}
-    else{
-        return(
-        <h1>Fetching items</h1>
-        )
-
-    }
-}
-
-function IterateMenu({data}){
-
+    if (data) {
+        
         return (
-         <div key={data.name}>
+         <>
          <h1 className='text-2xl my-5 ml-56 '>Best food around your location</h1>
          <section className='flex flex-wrap justify-around '>
           {data.map(e=>{return(
-              <div key={data.name}>
+              <>
               <Card dishItem={e} />
-              </div>)
+              </>)
           })}
          </section>
-         </div> 
+         </> 
         )
-	
+    }else{
+        return(<>
+        <h1>Fetching items</h1>
+        </>)
+    }
+}
+
+const getChefName=(dish)=>{
+
+    // return dish.chefId;
+   const chef= chefs.find((c)=> c.chefId == dish.chefId ).name
+   return chef
+    
 }
 
 function Card({dishItem}){
@@ -74,7 +63,7 @@ function Card({dishItem}){
     </div>
     <div>
         <h1 className='ml-3'> Prepared By: 
-             <Link href={`/chef/${dishItem.chefId}`}> {dishItem.chefName}</Link> 
+            {/* <Link href={`/chef/${dishItem.chefId}`}> {getChefName(dishItem)}</Link> */}  
             {/* <Link href={`/chef/${dishItem.chefId}`}>{dishItem.chefId}</Link> */}
         </h1>
     </div>
