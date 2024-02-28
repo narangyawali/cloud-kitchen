@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { isEmail } from "@/lib";
 
 export default function Register() {
   const [email, setEmail] = useState("");
@@ -12,9 +13,7 @@ export default function Register() {
   const router = useRouter();
   const handleClick = async (e) => {
     // console.log(email,password);
-    if (password.length < 6) {
-      alert("Your password should contain more than 6 characters");
-    } else {
+    if (password.length > 6 & isEmail(email)) {
       if (e.target.name == "chef") {
         await register("chef");
         router.push("/profile");
@@ -24,6 +23,8 @@ export default function Register() {
         router.push("/profile");
         // console.log(customer);
       }
+    } else {
+      alert("Please Enter valid email and  password  containing  more than 6 characters");
     }
   };
   const register = async (role) => {
