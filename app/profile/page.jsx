@@ -137,7 +137,7 @@ function Chef() {
             onChange={(e) => {
               setDescription(e.target.value);
             }}
-            className="border border-blue-600 p-2"
+            className="border border-orange-600 p-2"
             placeholder="Some Description About chef"
           ></textarea>
           <br />
@@ -156,7 +156,7 @@ function Chef() {
 			onClick={(e)=>{
 							handleLocation()
 						}}
-			className="h-10 border border-blue-500 rounded-xl text-xl p-1">
+			className="h-10 border border-orange-500 rounded-xl text-xl p-1">
             Get Location
           </button>
           <br />
@@ -178,7 +178,7 @@ function Chef() {
             <input
               type="button"
               value="Update"
-              className="h-10 border cursor-pointer border-blue-500 rounded-xl text-xl p-1"
+              className="h-10 border cursor-pointer border-orange-500 bg-orange-500 text-white font-semibold rounded-xl text-xl p-1"
               onClick={handleClick}
             />
             <button
@@ -186,7 +186,7 @@ function Chef() {
 				setOrderShow(false)
                 setUploadShow(!uploadShow);
               }}
-              className="h-10 border border-blue-500 rounded-xl text-xl p-1"
+              className="h-10 border border-orange-500 rounded-xl text-xl p-1"
             >
               Add One
             </button>
@@ -195,7 +195,7 @@ function Chef() {
 				setUploadShow(false)
                 setOrderShow(!orderShow);
               }}
-              className="h-10 border border-blue-500 rounded-xl text-xl p-1"
+              className="h-10 border border-orange-500 rounded-xl text-xl p-1"
             >
               My Orders
             </button>
@@ -306,7 +306,7 @@ function Customer() {
 
         <button
 			onClick={handleLocation}
-			className="h-10 border border-blue-500 rounded-xl text-xl p-1">
+			className="h-10 border border-orange-500 rounded-xl text-xl p-1 mb-5">
           Get Location
         </button>
         <br />
@@ -315,11 +315,11 @@ function Customer() {
           type="button"
           value="Update"
           onClick={handleClick}
-          className="h-10 border cursor-pointer border-blue-500 rounded-xl text-xl p-1"
+          className="h-10 border cursor-pointer bg-orange-500 text-white border-orange-500 rounded-xl text-xl p-1"
         />
 
       <br />
-      <h1 className="text-center text-2xl">Your Approved Order List</h1> 
+      <h1 className="text-center text-2xl my-4">Your Approved Order List</h1> 
       <OrderReport/>
       </section>
     </>
@@ -332,7 +332,7 @@ function Customer() {
 function MenuItem() {
   return (
     <>
-      <div className="h-64 w-64 my-8 mx-5 border border-blue-500"></div>
+      <div className="h-64 w-64 my-8 mx-5 border border-orange-500"></div>
     </>
   );
 }

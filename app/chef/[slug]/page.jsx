@@ -23,8 +23,9 @@ export default function IndividualChef({ params }) {
 		<Image src="/img/chefImg.jpg" width="120" height="120" className="rounded-[50%]"/>
         <h1 className="text-2xl font-bold text-orange-500">{data.name}</h1>
         <h1 className="text-xl">Specializes in {data.cusine}</h1>
-		<h1 className="text-xl">About Chef : {data.description}</h1>
-        <h1 className="text-xl">Chef's Menu</h1>
+		<h1 className="text-xl font-semibold">About Chef  </h1>
+		<h1 className="text-xl">{data.description}</h1>
+        <h1 className="text-xl font-semibold">Chef's Menu</h1>
 
         <GenerateMenu chefId={chefId}/>
 
