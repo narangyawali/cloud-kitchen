@@ -26,6 +26,7 @@ export default function OrderBtn({dishId,chef}) {
       })
     })
     const result = await data.json()
+	console.log("placing order")
     console.log(result);
 
   }
@@ -41,15 +42,16 @@ export default function OrderBtn({dishId,chef}) {
     </button>  
     <div className={show?"visible":"hidden"}>
 
-    <div className="border border-blue-400">
+    <div className="border border-orange-200 rounded-2xl my-2">
         <input 
+		className="rounded-2xl p-1"
         value={number}
         onChange={(e)=>{setNumber(e.target.value)}}
         type="number" placeholder="No Of Order" />
     </div>
     <button
-   		onClick={placeOrder} 
-     className="h-6  border border-blue-500 bg-blue-200">
+		onClick={placeOrder}
+		className="  border border-orange-200 bg-orange-300 hover:bg-orange-600 hover:text-white p-1 rounded-xl ml-40">
         Place Order
     </button>
     </div>

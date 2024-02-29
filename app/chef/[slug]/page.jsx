@@ -3,6 +3,8 @@ import  Link  from "next/link";
 import { chefs, items } from "@/data/items";
 import useSWR from "swr";
 import { fetcher } from "@/lib";
+import Image from "next/image"
+import OrderBtn from "@/components/orderBtn"
 
 export default function IndividualChef({ params }) {
 
@@ -17,25 +19,15 @@ export default function IndividualChef({ params }) {
     return (
       <>
       <div className="px-56 ">
-        {/* <h1>{params.slug}</h1> */}
 
-        <h1 className="text-xl"> Name Of the chef: {data.name}</h1>
-        <h1 className="text-xl">Preferred Cusine :{data.cusine}</h1>
+		<Image src="/img/chefImg.jpg" width="120" height="120" className="rounded-[50%]"/>
+        <h1 className="text-2xl font-bold text-orange-500">{data.name}</h1>
+        <h1 className="text-xl">Specializes in {data.cusine}</h1>
+		<h1 className="text-xl">About Chef : {data.description}</h1>
         <h1 className="text-xl">Chef's Menu</h1>
 
         <GenerateMenu chefId={chefId}/>
 
-
-        {/* <div className=" flex flex-wrap justify-evenly items-center">
-          
-          {chefDishes.map((d) => {
-            return (
-              <>
-              <MenuItem dish={d} />
-              </>
-              );
-            })}
-          </div> */}
       </div>
     </>
   )
@@ -52,13 +44,14 @@ function GenerateMenu({chefId}){
   
   const {data, error, loading}= useSWR(`/api/chef/${chefId}/items`,fetcher)
   if (data) {
+	console.log(data)
   return(
         <div className=" flex flex-wrap justify-evenly items-center">
           
           {data.map((d) => {
             return (
               <>
-                <MenuItem dish={d} />
+                <MenuItem dishItem={d} />
               </>
             );
           })}
@@ -73,34 +66,46 @@ function GenerateMenu({chefId}){
 
 }
 
-export function MenuItem({ dish }) {
+export function MenuItem({ dishItem }) {
+	const generateStars =()=>{
+
+		return(Math.floor(Math.random()*9 +1))
+	}
   return (
     <>
-      <div className="h-64 w-64 my-8 mx-5 border border-blue-500">
-      
-        {/* don't know why Link is not working here */}
-        <Link href={`/dish/${dish._id}`}>
-    	<img src={dish.image} className="w-full h-40" alt="" />
-        </Link>
 
+	{
+	  <div className="h-[30rem] w-96 border border-orange-200 m-3 rounded-2xl hover:scale-110 transition duration-700 ">
+					{
 
-        <div className="flex justify-between">
-          {/* <Link href={`/dish/${dish.id}`}> */}
-          <h1 className="ml-3"> {dish.name}</h1>
-          {/* </Link> */}
-          <h1 className="mr-3">{dish.stars || 4.5}</h1>
-
-        </div>
-        <div className="flex justify-between">
-          <h1 className="ml-3">Tags: {dish.tags || ""}</h1>
-          <h1 className="mr-3">price:{dish.price}</h1>
-        </div>
-        <div className="flex justify-between">
-          <h1 className="ml-3">order</h1>
-          <h1 className="mr-3">add to Cart</h1>
-        </div>
-      
-      </div>
-    </>
+	 <Link href={`/dish/${dishItem._id}`}>
+	   <img
+		 src={dishItem.image}
+		 alt=""
+		 className="w-full h-60  rounded-3xl p-2"
+	   />
+	 </Link>
+					}
+	 <div className="flex font-bold justify-between mb-2">
+	   <h1 className="ml-3"> {dishItem.name}</h1>
+	   <div className="flex flex-row ">
+		 <Image height="17" width="17" src="/star.svg" className="mr-3" />
+		 <h1 className="mr-3">{dishItem.stars ||`9.${generateStars()}`}</h1>
+	   </div>
+	 </div>
+	 <div className="flex justify-between mb-2">
+	   <h1 className="ml-3 ">Tags: {dishItem.tags || ""}</h1>
+	   <h1 className="mr-3 text-orange-500 font-semibold">{`RS:   ${dishItem.price}`}</h1>
+	 </div>
+	 <h1 className="mx-3">{dishItem.description}</h1>
+	 <div className="flex justify-between my-2">
+	   {/* <h1 className='ml-3'>order</h1>	 */}
+	   <OrderBtn dishId={dishItem._id} chef={dishItem.chef} />
+	   {/* <h1 className='mr-3'>add to Cart</h1>	 */}
+	 </div>
+	  </div>
+	}
+	 </>
+	
   );
 }

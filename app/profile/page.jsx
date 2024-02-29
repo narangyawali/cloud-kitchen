@@ -97,6 +97,7 @@ function Chef() {
         <h1 className="text-red-500 text-2xl text-center">Welcome Back Chef : {mail}</h1>
         <section classname="px-56 pb-10 mx-56 ">
           <h1 className="text-2xl">Your Profile</h1>
+		<lable> Name: </lable>
           <input
             type="text"
             placeholder="Full Name"
@@ -107,6 +108,7 @@ function Chef() {
             className="border border-black h-8 pl-2 my-2"
           />
           <br />
+		<lable>Prefered Cusine: </lable>
           <input
             type="text"
             placeholder="Preferd cusine"
@@ -117,6 +119,8 @@ function Chef() {
             className="border border-black h-8 pl-2 my-2 "
           />
           <br />
+			<lable>Some Description About You: </lable>
+			<br />
           <textarea
             name="desc"
             id=""
@@ -130,6 +134,7 @@ function Chef() {
             placeholder="Some Description About chef"
           ></textarea>
           <br />
+		<lable>Address: </lable>
           <input
             type="text"
             placeholder="Address"
@@ -258,6 +263,7 @@ function Customer() {
       <section className="px-56 pb-10">
         <h1 className="text-2xl">Your Profile</h1>
         <h1 className="text-2xl">Welcome back :{email}</h1>
+		<lable>Full Name: </lable>
         <input
           type="text"
           placeholder="Full Name"
@@ -269,6 +275,7 @@ function Customer() {
         />
         <br />
 
+		<lable>Address: </lable>
         <input
           type="text"
           placeholder="Address"

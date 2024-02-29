@@ -46,7 +46,7 @@ export async function GET(request){
         number: order.number,
       };
       list.push(individualOrder);
-      console.log(individualOrder);
+      // console.log(individualOrder);
     })
   );
 

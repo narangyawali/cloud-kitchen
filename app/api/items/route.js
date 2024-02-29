@@ -38,7 +38,7 @@ export async function GET(request){
 		const [item]= await Promise.all([itemPromise]);
 		const chefPromise = Chef.findById(item.chef)
 		const [ chef ] = await Promise.all([chefPromise])
-		console.log(chef)
+		// console.log(chef)
 		const oneItem = {
 			"chefName":chef.name,
 			"chefLocation":chef.location,
