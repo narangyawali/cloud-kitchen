@@ -288,7 +288,7 @@ function Customer() {
           onChange={(e) => {
             setName(e.target.value);
           }}
-          className="border border-black h-8 pl-2 my-2"
+          className="  h-8 pl-2 my-2 rounded-xl"
         />
         <br />
 
@@ -300,7 +300,7 @@ function Customer() {
           onChange={(e) => {
             setAddresss(e.target.value);
           }}
-          className="border border-black h-8 pl-2 my-2 "
+          className="border  h-8 pl-2 my-2 rounded-xl"
         />
         <br />
 

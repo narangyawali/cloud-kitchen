@@ -2,6 +2,7 @@
 import { fetcher } from '@/lib'
 import Link from 'next/link'
 import useSWR from 'swr'
+import Image from "next/image"
 import { useCookies } from 'react-cookie'
 
 export default function  UserNav() {
@@ -36,10 +37,10 @@ export default function  UserNav() {
 function Log({name}){
 return(<>
 <Link href="/profile">
-	{
-		// <p>Hello {name}</p>
-	}
-	<p>Profile</p>
+	<Image src="/user-circle.svg" width="25" height="25" alt="Profile"/>
+			{
+				// <p>Profile</p>
+			}
 </Link>
 </>)
 }
