@@ -11,7 +11,10 @@ export async function POST(request) {
     password: body.password,
   });
 
-  await customer.save();
+ const newCustomer=  await customer.save();
+ if(!newCustomer){
+		return NextResponse.json({error:"could not create customer"},{status:404})
+	}
 
  cookies().set("fname", "chf",{expires: Date.now() + 60*60*24*30*1000});
  cookies().set("ischef", "false",{expires: Date.now() + 60*60*24*30*1000});

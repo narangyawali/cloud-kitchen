@@ -11,6 +11,9 @@ export async function POST(request) {
     password: body.password,
   });
   //   console.log(body);
+  if(!chef){
+		return NextResponse.json({error:"chef not found"},{status:404})
+	}
   const name = chef?.name || "fnamelogin";
   cookies().set("fname", name,{expires: Date.now() + 60*60*24*30*1000});
   cookies().set("ischef", "true",{expires: Date.now() + 60*60*24*30*1000});

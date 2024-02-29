@@ -10,7 +10,10 @@ export async function POST(request) {
     password: body.password,
   });
 
-  await chef.save();
+ const newChef= await chef.save();
+ if(!newChef){
+		return NextResponse.json({error:"could not create customer"},{status:404})
+	}
 
   cookies().set("ischef", "true",{expires: Date.now() + 60*60*24*30*1000});
   cookies().set("_cre", JSON.stringify(chef),{expires: Date.now() + 60*60*24*30*1000});

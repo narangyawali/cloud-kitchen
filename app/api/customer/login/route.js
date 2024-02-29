@@ -12,6 +12,9 @@ export async function POST(request) {
     password: body.password,
   });
   //   console.log(body);
+  if(!customer){
+		return NextResponse.json({error:"customer not found"},{status:404})
+	}
   const name = customer?.name || "fnamelogin";
   cookies().set("fname", name,{expires: Date.now() + 60*60*24*30*1000});
   // cookies().set("fname", name,{expires:new Date(2024-3-1)});

@@ -1,6 +1,7 @@
 
 import React from 'react'
 import { useState } from 'react';
+import toast from "react-hot-toast"
 
 function OrderAppr({orderId}) {
   const [tick,setTick]= useState("")
@@ -20,6 +21,11 @@ const approveOrder = async (orderId) => {
     })
   });
   // const status = await data.status()
+	if(data.status ==200){
+		toast.success("order approved")
+	}else{
+		toast.error("unable to approve order, please refress and check")
+		}
   const result = await data.json();
   console.log(result);
   // setTick(result)

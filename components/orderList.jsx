@@ -23,7 +23,7 @@ export function OrderList({ show }) {
   if (data && show) {
     return (
       <>
-        <div className="border border-blue-500 h-56 min-w-96 mx-96 absolute top-56 ">
+        <div className="border border-blue-500 h-56 min-w-96 mx-96 absolute top-56 right-1 ">
           <h1>Orderlist</h1>
 
           <div className="flex p-1">

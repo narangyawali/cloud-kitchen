@@ -13,7 +13,7 @@ export async function PATCH(request) {
     
     const cre= JSON.parse(cookies().get("_cre").value)
     // console.log(JSON.parse(cookies().get("_cre").value).email);
-    const chef = await Customer.findOneAndUpdate(
+    const customer = await Customer.findOneAndUpdate(
     {
       email: cre.email,
       password: cre.password
@@ -26,7 +26,10 @@ export async function PATCH(request) {
       address: body.address,
     }
   );
-  cookies().set("_cre", JSON.stringify(chef));
+  if(!customer){
+		return NextResponse.json({error:"error while saving "},{status:404})
+	}
+  cookies().set("_cre", JSON.stringify(customer));
   cookies().set("ischef", "false");
- return NextResponse.json(chef)
+ return NextResponse.json(customer)
 }

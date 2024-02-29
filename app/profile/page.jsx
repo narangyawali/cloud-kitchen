@@ -5,6 +5,7 @@ import { AddItem } from "@/components/addItem";
 import { convertBase64, fetcher } from "@/lib";
 import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
+import toast from "react-hot-toast";
 
 import useSWR from "swr";
 import OrderReport from "@/components/orderReport";
@@ -75,7 +76,13 @@ function Chef() {
       }),
     });
     // const status = await data.status()
+	if(data.status ==200){
+		toast.success("profile updated")
+	}else{
+		toast.error("unable to update profile")
+		}
     const result = await data.json();
+
     setUpdate(result);
   };
 	const handleLocation = async (e)=>{
@@ -94,7 +101,7 @@ function Chef() {
   return (
     <>
       <div className="px-64 pb-10">
-        <h1 className="text-red-500 text-2xl text-center">Welcome Back Chef : {mail}</h1>
+        <h1 className="text-orange-500 text-2xl text-center">Welcome Back Chef : {mail}</h1>
         <section classname="px-56 pb-10 mx-56 ">
           <h1 className="text-2xl">Your Profile</h1>
 		<lable> Name: </lable>
@@ -176,6 +183,7 @@ function Chef() {
             />
             <button
               onClick={() => {
+				setOrderShow(false)
                 setUploadShow(!uploadShow);
               }}
               className="h-10 border border-blue-500 rounded-xl text-xl p-1"
@@ -184,6 +192,7 @@ function Chef() {
             </button>
             <button
               onClick={() => {
+				setUploadShow(false)
                 setOrderShow(!orderShow);
               }}
               className="h-10 border border-blue-500 rounded-xl text-xl p-1"
@@ -201,6 +210,9 @@ function Chef() {
 
           </div>
         </section>
+				{
+					// <button onClick={()=>{toast("working")}}> toast</button>
+				}
       </div>
     </>
   );
@@ -242,6 +254,11 @@ function Customer() {
       }),
     });
     // const status = await data.status()
+	if(data.status ==200){
+		toast.success("profile updated")
+	}else{
+		toast.error("unable to update profile")
+		}
     const result = await data.json();
     setUpdate(result);
   };
@@ -261,8 +278,8 @@ function Customer() {
   return (
     <>
       <section className="px-56 pb-10">
+        <h1 className="text-3xl text-orange-500">Welcome back :{email}</h1>
         <h1 className="text-2xl">Your Profile</h1>
-        <h1 className="text-2xl">Welcome back :{email}</h1>
 		<lable>Full Name: </lable>
         <input
           type="text"

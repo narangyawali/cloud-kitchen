@@ -27,6 +27,9 @@ export async function PATCH(request) {
       address: body.address,
     }
   );
+  if(!chef){
+		return NextResponse.json({error:"error while saving "},{status:404})
+	}
   cookies().set("_cre", JSON.stringify(chef));
   cookies().set("ischef", "true");
  return NextResponse.json(chef)

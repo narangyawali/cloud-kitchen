@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import toast from "react-hot-toast"
 
 export default function OrderBtn({dishId,chef}) {
 	const [show , setShow]= useState(false)
@@ -25,6 +26,11 @@ export default function OrderBtn({dishId,chef}) {
     
       })
     })
+	if(data.status ==200){
+		toast.success("order placed succefully")
+	}else{
+		toast.error("unable to place order")
+		}
     const result = await data.json()
 	console.log("placing order")
     console.log(result);

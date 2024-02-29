@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import Image from "next/image"
+import {Toaster} from "react-hot-toast"
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -15,6 +16,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="">
       <body className={inter.className}>
+		<Toaster/>
         <NavBar />
         <div className="min-h-[75vh] bg-slate-100">{children}</div>
         <div className="border-t-2 bg-gray-200 flex justify-around min-h-44 items-center">

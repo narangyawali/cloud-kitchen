@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { isEmail } from "@/lib";
+import toast from "react-hot-toast";
 
 export default function Register() {
   const [email, setEmail] = useState("");
@@ -16,11 +17,9 @@ export default function Register() {
     if (password.length > 6 & isEmail(email)) {
       if (e.target.name == "chef") {
         await register("chef");
-        router.push("/profile");
         // console.log(chef);
       } else {
         await register("customer");
-        router.push("/profile");
         // console.log(customer);
       }
     } else {
@@ -40,6 +39,12 @@ export default function Register() {
       }),
     });
     // const status = await data.status()
+	if(data.status ==200){
+		toast.success("registered successfully update your profile")
+        router.push("/profile");
+	}else{
+		toast.error("could not register check your email")
+	}
     const result = await data.json();
 
     console.log(result);
