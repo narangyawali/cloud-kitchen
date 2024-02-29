@@ -36,7 +36,9 @@ export default function IndividualChef({ params }) {
   return(<> <h1>Error</h1> </>)
 }
 else{
-  return(<><h1>Loading chef</h1></>)
+    return(<div className="">
+			<img src="/loading.gif" alt="" className="h-[80vh] w-[100%]" />
+		</div>)
 }
 }
 

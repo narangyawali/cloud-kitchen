@@ -19,6 +19,7 @@ function Menu() {
   } = useSWR("/api/customer/me", fetcher);
 
   if (data && cus_data) {
+  // if (false) {
     // console.log(data)
     const data_with_distance = data.map((e) => {
       let distance = haversine(
@@ -38,7 +39,9 @@ function Menu() {
     console.log(sorted_data);
     return <IterateMenu data={sorted_data} />;
   } else {
-    return <h1>Fetching items</h1>;
+    return(<div className="">
+			<img src="/loading.gif" alt="" className="h-[80vh] w-[100%]" />
+		</div>)
   }
 }
 
