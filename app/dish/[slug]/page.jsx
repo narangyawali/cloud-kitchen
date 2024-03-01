@@ -34,7 +34,7 @@ export default function ParticularDish({ params }) {
             <h1 className="text-xl my-3 font-semibold">
               Prepared by:
               <Link href={`/chef/${data.chef}`} className="text-orange-500">
-				{`  ${data.chefName}`}
+                {`  ${data.chefName}`}
               </Link>
             </h1>
             <div className="flex flex-row">
@@ -60,7 +60,7 @@ export default function ParticularDish({ params }) {
   } else {
     return (
       <>
-        <h1>Loading</h1>
+        <img src="/loading.gif" alt="" className="h-[80vh] w-[100%]" />
       </>
     );
   }
