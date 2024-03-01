@@ -319,7 +319,7 @@ function Customer() {
         />
 
       <br />
-      <h1 className="text-center text-2xl my-4">Your Approved Order List</h1> 
+      <h1 className="text-center text-3xl my-4">Your Approved Order List</h1> 
       <OrderReport/>
       </section>
     </>

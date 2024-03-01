@@ -44,6 +44,7 @@ export async function GET(request){
         dishImage: dish.image,
         cName: customer.name,
         number: order.number,
+		dishPrice:dish.price,
       };
       list.push(individualOrder);
       // console.log(individualOrder);
