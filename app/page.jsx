@@ -1,3 +1,5 @@
+"use client"
+import CollectionHome from "@/components/collectionHome";
 import Image from "next/image";
 import Link from "next/link"
 
@@ -31,20 +33,23 @@ export default function Home() {
 			<section className="mx-64 py-12">
 				<div className="flex justify-between items-center">
 
-					<div>
+					<div className="flex flex-col justify-center items-center">
 						<h1 className="text-2xl">Everything is Better With</h1>
 						<h1 className="text-2xl text-orange-500 text font-semibold">Good Meal</h1>
-						<h1 className="mt-28"> A digital platform that connects skilled home chefs with eager customers. </h1>
+						<h1 className="mt-28 w-96 mb-10"> A digital platform that connects skilled home chefs with eager customers. We provide a platform for users to connect with skilled home chefswho offer healthier, more personalized dining options, and high-quality meals. </h1>
 						<h1 className="">  </h1>
 						<h1> </h1>
 					</div>
 					<div>
-						<img src="/img/thakali.jpg" alt="ddd" className="h-72 rounded-3xl" />
+						<img src="/img/frontimg.webp" alt="ddd" className="h-72 rounded-3xl" />
 					</div>
 				</div>
 
 				<h1 className="text-center mt-5 text-xl">Checkout</h1>
 				<h1 className="text-center text-2xl text-orange-500 font-semibold">Our Best Sellers</h1>
+				{
+					<CollectionHome/>
+				}
 				<div className="flex items-center justify-center my-7">
 				<Link href="/new-menu" className="bg-orange-500 p-3 rounded-xl font-semibold text-white" >View Our Menu </Link>
 				</div>
@@ -70,7 +75,7 @@ export default function Home() {
 
 				<h1 className="text-center mt-5">Our Story</h1>
 				<h1 className="text-center text-2xl font-semibold text-orange-500 ">About Us </h1>
-				<h1 className="text-center mx-44">Home Based Food Service is an online web-based platform that provides high-quality and personalized home-cooked food. This platform not only satisfies the growing demand for convenient services for customers but also plays a pivotal role in supporting women in becoming successful home-based entrepreneurs.</h1>
+				<h1 className="text-center mx-44">Home Based Food Service is an online web-based platform that provides high-quality and personalized home-cooked food. This platform not only satisfies the growing demand for convenient services for customers but also plays a pivotal role in supporting women in becoming successful home-based entrepreneurs. We provide a platform for users to connect with skilled home chefs	who offer healthier, more personalized dining options, and high-quality meals.</h1>
 				<h1 id="contact" className="text-center mt-5">Our Misson</h1>
 				<h1 className="text-center text-2xl text-orange-500 font-bold">Objectives </h1>
 				<h1 className="text-center mx-44">To provide high quality, personalized home cooked food</h1>

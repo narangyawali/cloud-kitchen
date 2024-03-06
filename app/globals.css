@@ -26,6 +26,6 @@ body {
     rgb(var(--background-start-rgb)); */
 }
 
-/* nextjs-portal { */
-/*   display: none; */
-/* } */
+nextjs-portal {
+  display: none;
+}

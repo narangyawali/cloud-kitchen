@@ -21,12 +21,12 @@ export default function ParticularDish({ params }) {
       <>
         {/* <h1> route is: {params.slug}</h1> */}
         <div className="mx-56 flex flex-row   pt-16">
-          <div className="mr-10 hover:scale-110 transition-all duration-1000 ">
+          <div className="mr-10 hover:scale-110 transition-all duration-1000  ">
             <img src={data.image} alt="img" className="h-72 rounded-3xl" />
           </div>
           <div className="ml-10">
             <h1 className="text-3xl my-3 font-semibold">{data.name}</h1>
-            <h1 className="text-2xl">{data.description}</h1>
+            <h1 className="text-2xl w-[30rem]">{data.description}</h1>
             <h1 className="text-2xl my-3 font-semibold">
               <span className="text-orange-500">RS: </span>
               {data.price}

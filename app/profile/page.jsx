@@ -22,7 +22,7 @@ function Page() {
   } else {
     return (
       <>
-        <h1>Error</h1>
+        <h1>Loading...</h1>
       </>
     );
   }
@@ -91,9 +91,11 @@ function Chef() {
 				const locArr=[position.coords.latitude,position.coords.longitude]
 				setLocation({x:locArr[0],y:locArr[1]})
 				console.log(locArr)
+				toast.success("successfullt got location ")
 			});
 		} else { 
 			console.log("errror while fetching location")
+			toast.error("unable to access location")
 		}
 
 	}
@@ -269,9 +271,11 @@ function Customer() {
 				const locArr=[position.coords.latitude,position.coords.longitude]
 				setLocation({x:locArr[0],y:locArr[1]})
 				console.log(locArr)
+				toast.success("successfullt got location ")
 			});
 		} else { 
 			console.log("errror while fetching location")
+			toast.error("unable to access location")
 		}
 
 	}

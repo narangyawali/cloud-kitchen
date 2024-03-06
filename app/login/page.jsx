@@ -1,4 +1,5 @@
 "use client";
+import CollectionHome from "@/components/collectionHome";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
